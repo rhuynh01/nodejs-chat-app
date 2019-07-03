@@ -1,5 +1,16 @@
 language: node_js
+node_js: 10.16.0
+catch: npm
+
+install:
+  - npm ci
+
+script:
+  - npm test
+  - npm run build
 
 deploy:
   provider: heroku
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
   app: rhuynh-node-chat-app
